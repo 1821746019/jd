@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>index</title>
+  <link rel="stylesheet" href="index.css"/>
+  <script
+      src="https://kit.fontawesome.com/385c4188b4.js"
+      crossorigin="anonymous"
+  ></script>
+  <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+  />
+  <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+  />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body
+    style="
+      background:
+      url(https://m.360buyimg.com/babel/jfs/t20271111/223831/30/43040/417113/6731c245F3fcf9342/62d66e572a22ec38.png)
+          center top / 1340px 318px no-repeat,
+        linear-gradient(to bottom, #ff4d55, #FF4C55 260px, white 696px);
+
+    "
+>
+<header>
+  <nav class="flex justify-between bg-gray-50 px-4 py-[0.125rem] text-[0.8rem] [padding-inline:calc((100%-min(100%,80rem))/2)]">
+    <!--    <a>京东首页</a>-->
+    <a>广东</a>
+    <div class="flex justify-between gap-2">
+      <a>你好，<span class="text-red-500">请登录</span> </a>
+      <a>免费注册</a>
+      <a>我的订单</a>
+      <a>我的京东</a>
+      <a>京东会员</a>
+      <a class="text-red-500">企业采购</a>
+      <a>客户服务</a>
+      <a>网站导航</a>
+      <a>手机京东</a>
+      <a>网站无障碍</a>
+    </div>
+  </nav>
+</header>
+<main class="mx-auto max-w-7xl">
+  <section data-include="component/SearchArea.html"></section>
+  <section data-include="component/RecommendationArea.html"></section>
+  <section data-include="component/Nav/Nav.html" class="mt-2 mx-auto max-w-7xl"></section>
+  <section class="" data-include="component/Goods/Goods.html">
+  </section>
+</main>
+<!--<iframe id="about" src="about.html"></iframe>-->
+<footer data-include="component/Footer.html"></footer>
+</body>
+<script src="script.js"></script>
+</html>

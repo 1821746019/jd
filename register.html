@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>register</title>
+  </head>
+  <body>
+    <div class="middle-content">
+      <div class="step-1">
+        <div>
+          <a
+            name="area-code"
+            id="area-code"
+            class="area-code"
+            onclick="this.querySelector('.area-code-selection').toggleAttribute('hidden')"
+            >+86
+            <div class="area-code-selection" hidden>
+              <div class="search-box">
+                <b class="search-icon"></b>
+                <input placeholder="搜索您的国家和地区" />
+              </div>
+              <ul>
+                <li value="+86"><span>中国</span>+86</li>
+                <li value="+852"><span>中国香港</span>+852</li>
+                <li value="+853"><span>中国澳门</span>+853</li>
+                <li value="+886"><span>中国台湾</span>+886</li>
+              </ul>
+            </div>
+          </a>
+
+          <input type="tel" placeholder="请输入手机号" />
+        </div>
+        <div>点击按钮进行验证</div>
+        <button class="submit-btn red-button">下一步</button>
+      </div>
+      <div class="step-2" hidden>
+        <div class="account-name">
+          <span>账号名</span>
+          <input placeholder="账户唯一标识，可用来登录" />
+        </div>
+        <div class="pwd">
+          <span>设置密码</span>
+          <input placeholder="建议使用两种或两种以上字符组合" />
+        </div>
+        <div class="confirm-pwd">
+          <span>确认密码</span>
+          <input placeholder="账户唯一标识，可用来登录" />
+        </div>
+        <div>
+          <span>邮箱验证</span> <input type="email" name="email" id="email" />
+        </div>
+        <div>
+          <span>邮箱验证码</span>
+
+          <input
+            type="number"
+            name="verification_code"
+            id="verification_code"
+          />
+          <button>获取验证码</button>
+        </div>
+        <button class="submit-btn red-button">立即注册</button>
+      </div>
+      <div class="step-3" hidden>
+        <span>恭喜您注册成功</span>
+      </div>
+    </div>
+  </body>
+  <script src="register.js"></script>
+</html>

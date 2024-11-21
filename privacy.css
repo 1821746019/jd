@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Noto Sans SC", sans-serif;
+  background-color: #fff;
+  /* padding: 20px; */
+  color: #333;
+  /* line-height: 1.8; */
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.subheader {
+  font-size: 16px;
+  color: gray;
+  margin-top: 8px;
+}
+
+.update-info {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.update-info p {
+  margin-bottom: 8px;
+}
+
+.special-reminder {
+  font-weight: 700;
+  color: #000;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.main-content {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.main-content .highlight {
+  color: blue;
+  cursor: pointer;
+}
+
+.contact {
+  font-size: 14px;
+}
+
+.contact p {
+  margin-bottom: 10px;
+}
+
+.contact .highlight {
+  font-weight: bold;
+  color: #000;
+}

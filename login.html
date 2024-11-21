@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="http://www.jd.com/favicon.ico" />
+    <script
+      src="https://kit.fontawesome.com/385c4188b4.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="login.css" />
+    <title>login</title>
+  </head>
+  <body>
+    <form>
+      <nav>
+        <label class="default-tab">
+          <input
+            type="radio"
+            data-target=".pwd-login"
+            value="pwd-login"
+            onclick="showLoginForm(event)"
+            name="login-method"
+          />
+          密码登录
+        </label>
+
+        <label>
+          <input
+            type="radio"
+            data-target=".sms-login"
+            value="sms-login"
+            onclick="showLoginForm(event)"
+            name="login-method"
+          />
+          短信登录
+        </label>
+
+        <label
+          data-target=".qr-login"
+          value="qr-login"
+          onclick="showLoginForm(event)"
+        >
+          <input type="radio" name="login-method" />
+          扫码登录
+        </label>
+      </nav>
+      <div class="middle">
+        <div class="middle-content">
+          <div class="pwd-login" hidden>
+            <input
+              type="text"
+              id="loginname"
+              placeholder="账号名/手机号/邮箱"
+              autocomplete="username"
+            />
+            <input
+              type="password"
+              id="pwd"
+              autocomplete="current-password"
+              placeholder="密码"
+            />
+            <a>忘记密码</a>
+          </div>
+          <div class="sms-login" hidden>
+            <div>
+              <a
+                name="area-code"
+                id="area-code"
+                class="area-code"
+                onclick="this.querySelector('.area-code-selection').toggleAttribute('hidden')"
+                >+86
+                <div class="area-code-selection" hidden>
+                  <div class="search-box">
+                    <b class="search-icon"></b>
+                    <input placeholder="搜索您的国家和地区" />
+                  </div>
+                  <ul>
+                    <li value="+86"><span>中国</span>+86</li>
+                    <li value="+852"><span>中国香港</span>+852</li>
+                    <li value="+853"><span>中国澳门</span>+853</li>
+                    <li value="+886"><span>中国台湾</span>+886</li>
+                  </ul>
+                </div>
+              </a>
+
+              <input type="tel" placeholder="请输入手机号" />
+            </div>
+            <div>
+              <input type="number" placeholder="请输入验证码" />
+              <a id="verification-code">获取验证码</a>
+            </div>
+          </div>
+          <div class="qr-login" hidden>
+            <!-- 扫码登录内容 -->
+          </div>
+        </div>
+      </div>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          // 默认加载密码登录内容
+          document.querySelector(".default-tab").click();
+        });
+
+        function showLoginForm(event) {
+          console.log("------------------");
+          console.log(event.target);
+          const targetClass = event.target.getAttribute("data-target");
+          const middleContent = document.querySelector(".middle-content");
+          [...middleContent.children].forEach((e) => {
+            e.style.display = "none";
+          });
+          document.querySelector(targetClass).style.display = "block";
+        }
+      </script>
+
+      <div class="middle">
+        <div
+          class="middle-content"
+          onload="this.innerHTML=document.querySelector('.pwd-login').innerHTML"
+        ></div>
+      </div>
+      <div class="down">
+        <a>登录</a>
+        <div class="login-with">
+          <a>
+            <span class="icon-wrap"><i class="fa-brands fa-qq"></i></span>
+            QQ
+          </a>
+          <a>
+            <span class="icon-wrap"><i class="fa-brands fa-weixin"></i></span
+            >微信
+          </a>
+          <a>立即注册</a>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>

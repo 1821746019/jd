@@ -36,6 +36,8 @@ async function loadIncludes(element, baseUrl) {
       const scripts = includeElement.querySelectorAll("script");
       for (const script of scripts) {
         const scriptContent = script.textContent;
+        console.log(script.src);
+        // debugger;
         if (script.src) {
           // 如果 script 标签有 src 属性，动态加载并执行
           const newScript = document.createElement("script");

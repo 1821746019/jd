@@ -1,28 +1,34 @@
 <div class="flex h-32 w-full justify-center text-center text-gray-100">
   <div class="flex w-full max-w-[1080px] items-center justify-between">
-    <img loading="lazy" src="images/jd_logo.jpg" alt="jd logo" class="w-52 object-contain" />
+    <img
+      loading="lazy"
+      src="images/jd_logo.jpg"
+      alt="jd logo"
+      class="w-52 object-contain"
+    />
     <div class="flex-1">
       <div>
         <label
           class="relative flex overflow-hidden rounded-md bg-white py-1 pl-4 pr-2"
         >
           <input class="flex-1 text-black" type="search" />
-          <span
-            id="promptList"
-            class="absolute left-0 top-1/2 flex -translate-y-1/2 flex-col px-4 text-gray-300 transition"
-          >
-            <span class="">芭比娃娃</span>
-            <span class="hidden">华为平板电脑</span>
-            <span class="hidden">超级国货日 低至1元起</span>
-            <span class="hidden">神舟游戏本</span>
-            <span class="hidden">行车记录仪</span>
-            <span class="hidden">爱普生打印机</span>
-            <span class="hidden">古筝</span>
-            <span class="hidden">bb霜</span>
-            <span class="hidden">海尔空调</span>
-            <span class="hidden">键盘鼠标套装</span>
+          <span id="prompt" class="absolute top-1/2 -translate-y-1/2 w-[80%] flex items-center">
+            <span
+              id="promptList"
+              class="relative h-8 w-full text-black [&>*]:absolute [&>*]:top-1/2 [&>*]:-translate-y-1/2 [&>*]:hidden [&>*]:transition-all [&>*]:duration-1000"
+            >
+              <span>芭比娃娃</span>
+              <span>华为平板电脑</span>
+              <span>超级国货日 低至1元起</span>
+              <span>神舟游戏本</span>
+              <span>行车记录仪</span>
+              <span>爱普生打印机</span>
+              <span>古筝</span>
+              <span>bb霜</span>
+              <span>海尔空调</span>
+              <span>键盘鼠标套装</span>
+            </span>
           </span>
-          <script src="promptCarousel.js"></script>
           <span
             class="material-symbols-outlined grid place-items-center px-2 text-2xl text-black"
           >
@@ -45,3 +51,4 @@
     </div>
   </div>
 </div>
+<script src="component/SearchArea.js"></script>

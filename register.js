@@ -1,5 +1,17 @@
 const submitBtnList = document.querySelectorAll(".submit-btn");
 
+// const hideAll
+
+const showElem = (elem) => {
+  console.log(elem);
+  // elem.hidden = false;
+  elem.classList.remove("hidden");
+};
+const hideElem = (elem) => {
+  // elem.hidden = true;
+  elem.classList.add("hidden");
+};
+showElem(document.querySelector('[class^="step-1"]'));
 submitBtnList.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     const stepElems = [...document.querySelectorAll('[class^="step-"]')];
@@ -13,9 +25,8 @@ submitBtnList.forEach((btn) => {
     if (currStep.nextElementSibling) {
       console.log(currStep.nextElementSibling);
 
-      currStep.hidden = true;
-
-      currStep.nextElementSibling.hidden = null;
+      hideElem(currStep);
+      showElem(currStep.nextElementSibling);
     }
   });
 });

@@ -1,34 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About</title>
     <link rel="stylesheet" href="about.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <script>
       function loadPage(page) {
-        fetch(page)
-          .then((response) => response.text())
-          .then((data) => {
-            let shadowHost = document.getElementById("content");
-
-            // Check if the shadow root already exists
-            let shadowRoot = shadowHost.shadowRoot;
-            if (!shadowRoot) {
-              // Attach shadow root if it does not exist
-              shadowRoot = shadowHost.attachShadow({ mode: "open" });
-            }
-
-            // Update shadow root content
-            shadowRoot.innerHTML = data;
-          })
-          .catch((error) => console.error("Error loading page:", error));
-      }
+        const contentElem=document.querySelector("#content")
+        contentElem.src=page
+        }
     </script>
   </head>
-  <body>
-    <main id="main">
-      <nav id="nav">
+  <body >
+    <main id="main" class="h-dvh">
+      <nav id="nav" class="text-xl">
         <ul>
           <li>
             <!--  id="founder" -->
@@ -38,7 +26,8 @@
           <li><a onclick="loadPage('privacy.html')">京东隐私政策</a></li>
         </ul>
       </nav>
-      <div id="content"></div>
+      <iframe id="content" class="w-full h-full p-4"></iframe>
+      <!--      <div id="content"></div>-->
     </main>
   </body>
   <script src="about.js"></script>

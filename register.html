@@ -1,22 +1,25 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>register</title>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
-    <div class="middle-content">
-      <div class="step-1">
-        <div>
-          <a
-            name="area-code"
+  <body class="grid h-dvh place-items-center">
+    <div class="middle-content w-full max-w-[24rem] text-lg ">
+      <div class="step-1 hidden flex flex-col gap-8">
+        <div
+          class="flex h-12 items-center justify-center border border-neutral-200"
+        >
+          <div
             id="area-code"
-            class="area-code"
+            class="area-code z-[1] inline-grid h-full w-[25%] cursor-pointer place-items-center outline outline-1 outline-neutral-300"
             onclick="this.querySelector('.area-code-selection').toggleAttribute('hidden')"
-            >+86
+          >
+            +86
             <div class="area-code-selection" hidden>
-              <div class="search-box">
+              <div class="search-box ">
                 <b class="search-icon"></b>
                 <input placeholder="搜索您的国家和地区" />
               </div>
@@ -27,16 +30,24 @@
                 <li value="+886"><span>中国台湾</span>+886</li>
               </ul>
             </div>
-          </a>
+          </div>
 
-          <input type="tel" placeholder="请输入手机号" />
+          <input
+            class="h-full flex-1 px-4"
+            type="tel"
+            placeholder="建议使用常用手机号"
+          />
         </div>
-        <div>点击按钮进行验证</div>
-        <button class="submit-btn red-button">下一步</button>
+        <button
+          class="flex h-12 items-center justify-center border border-neutral-300"
+        >
+          点击按钮进行验证
+        </button>
+        <button class="submit-btn bg-red-500 py-2.5 text-white">下一步</button>
       </div>
-      <div class="step-2" hidden>
+      <div  class="step-2 hidden">
         <div class="account-name">
-          <span>账号名</span>
+          <span class="z-[1] inline-grid h-full w-[25%] cursor-pointer place-items-center outline outline-1 outline-neutral-300">账号名</span>
           <input placeholder="账户唯一标识，可用来登录" />
         </div>
         <div class="pwd">
@@ -62,7 +73,7 @@
         </div>
         <button class="submit-btn red-button">立即注册</button>
       </div>
-      <div class="step-3" hidden>
+      <div  class="step-3 hidden">
         <span>恭喜您注册成功</span>
       </div>
     </div>

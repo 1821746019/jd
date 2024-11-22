@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -10,10 +10,11 @@
     ></script>
     <link rel="stylesheet" href="login.css" />
     <title>login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
-    <form>
-      <nav>
+  <body class="grid h-dvh place-items-center ">
+    <form class="aspect-video w-full max-w-[22rem]">
+      <nav class="flex justify-center gap-4 text-xl font-bold">
         <label class="default-tab">
           <input
             type="radio"
@@ -36,31 +37,29 @@
           短信登录
         </label>
 
-        <label
-          data-target=".qr-login"
-          value="qr-login"
-          onclick="showLoginForm(event)"
-        >
-          <input type="radio" name="login-method" />
+        <label data-target=".qr-login" onclick="showLoginForm(event)">
+          <input type="radio" name="login-method" value="qr-login" />
           扫码登录
         </label>
       </nav>
-      <div class="middle">
+      <div class="middle text-lg">
         <div class="middle-content">
-          <div class="pwd-login" hidden>
+          <div class="pwd-login !flex flex-col gap-3  py-3" hidden>
             <input
+              class="rounded-xl bg-gray-100 p-3 focus:outline-red-300"
               type="text"
               id="loginname"
               placeholder="账号名/手机号/邮箱"
               autocomplete="username"
             />
             <input
+              class="rounded-xl bg-gray-100 p-3 focus:outline-red-300"
               type="password"
               id="pwd"
               autocomplete="current-password"
               placeholder="密码"
             />
-            <a>忘记密码</a>
+            <a class="text-right text-base">忘记密码</a>
           </div>
           <div class="sms-login" hidden>
             <div>
@@ -97,24 +96,6 @@
         </div>
       </div>
 
-      <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          // 默认加载密码登录内容
-          document.querySelector(".default-tab").click();
-        });
-
-        function showLoginForm(event) {
-          console.log("------------------");
-          console.log(event.target);
-          const targetClass = event.target.getAttribute("data-target");
-          const middleContent = document.querySelector(".middle-content");
-          [...middleContent.children].forEach((e) => {
-            e.style.display = "none";
-          });
-          document.querySelector(targetClass).style.display = "block";
-        }
-      </script>
-
       <div class="middle">
         <div
           class="middle-content"
@@ -122,19 +103,40 @@
         ></div>
       </div>
       <div class="down">
-        <a>登录</a>
-        <div class="login-with">
-          <a>
-            <span class="icon-wrap"><i class="fa-brands fa-qq"></i></span>
+        <button class="w-full bg-red-300 text-xl py-2 rounded-xl text-white font-medium">登录</button>
+        <div class="login-with mt-4 flex gap-3">
+          <a class="flex gap-0.5">
+            <i
+              class="fa-brands fa-qq inline-grid aspect-square w-8 place-items-center rounded-[50%] bg-[#74c0fc] text-white"
+            ></i>
             QQ
           </a>
-          <a>
-            <span class="icon-wrap"><i class="fa-brands fa-weixin"></i></span
-            >微信
+          <a class="flex gap-0.5">
+            <i
+              class="fa-brands fa-weixin inline-grid aspect-square w-8 place-items-center rounded-[50%] bg-[#03dd9c] text-white"
+            ></i>
+            微信
           </a>
-          <a>立即注册</a>
+          <a class="inline-block flex-1 text-right !text-base">立即注册</a>
         </div>
       </div>
     </form>
   </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // 默认加载密码登录内容
+      document.querySelector(".default-tab").click();
+    });
+
+    function showLoginForm(event) {
+      console.log("------------------");
+      console.log(event.target);
+      const targetClass = event.target.getAttribute("data-target");
+      const middleContent = document.querySelector(".middle-content");
+      [...middleContent.children].forEach((e) => {
+        e.style.display = "none";
+      });
+      document.querySelector(targetClass).style.display = "block";
+    }
+  </script>
 </html>

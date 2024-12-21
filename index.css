@@ -21,12 +21,12 @@ a {
   text-decoration: none;
 }
 
-header nav {
+header>nav {
   display: flex;
   justify-content: space-around;
 }
 
-header nav a {
+header>nav>a {
   color: gray;
   cursor: pointer;
   padding: 0.25rem;

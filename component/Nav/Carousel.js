@@ -5,6 +5,7 @@ let isHovering = false;
 const carousel = document.querySelector("#carousel");
 const images = Array.from(carousel.querySelectorAll(".images>*"));
 const buttonContainer = carousel.querySelector(".buttons");
+
 // console.log(carousel, images, buttonContainer);
 // hide all elem first
 // children.forEach((child) => {

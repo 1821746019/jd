@@ -12,67 +12,91 @@
     <title>login</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="grid h-dvh place-items-center ">
+  <body class="grid h-dvh place-items-center">
     <form class="aspect-video w-full max-w-[22rem]">
-      <nav class="flex justify-center gap-4 text-xl font-bold">
-        <label class="default-tab">
+      <nav id="tabNav" class="flex justify-center gap-4 text-xl font-bold">
+        <label
+          class="default-tab [&:has(input[type='radio']:checked)]:text-red-500"
+        >
           <input
+            class="hidden"
+            onclick="showLoginForm(event)"
             type="radio"
             data-target=".pwd-login"
             value="pwd-login"
-            onclick="showLoginForm(event)"
             name="login-method"
           />
           密码登录
         </label>
 
-        <label>
+        <label class="[&:has(input[type='radio']:checked)]:text-red-500">
           <input
+            class="hidden"
+            onclick="showLoginForm(event)"
             type="radio"
             data-target=".sms-login"
             value="sms-login"
-            onclick="showLoginForm(event)"
             name="login-method"
           />
           短信登录
         </label>
 
-        <label data-target=".qr-login" onclick="showLoginForm(event)">
-          <input type="radio" name="login-method" value="qr-login" />
+        <label class="[&:has(input[type='radio']:checked)]:text-red-500">
+          <input
+            onclick="showLoginForm(event)"
+            class="hidden"
+            type="radio"
+            name="login-method"
+            value="qr-login"
+            data-target=".qr-login"
+          />
           扫码登录
         </label>
       </nav>
       <div class="middle text-lg">
         <div class="middle-content">
-          <div class="pwd-login !flex flex-col gap-3  py-3" hidden>
-            <input
-              class="rounded-xl bg-gray-100 p-3 focus:outline-red-300"
-              type="text"
-              id="loginname"
-              placeholder="账号名/手机号/邮箱"
-              autocomplete="username"
-            />
-            <input
-              class="rounded-xl bg-gray-100 p-3 focus:outline-red-300"
-              type="password"
-              id="pwd"
-              autocomplete="current-password"
-              placeholder="密码"
-            />
+          <div class="pwd-login flex !hidden flex-col gap-3 py-3">
+            <div class="">
+              <input
+                class="w-full rounded-lg bg-gray-100 p-3 focus:outline-red-300"
+                id="account"
+                type="text"
+                placeholder="账号名/手机号/邮箱"
+                autocomplete="username"
+              />
+              <p class="px-2 text-sm text-[red]"></p>
+            </div>
+            <div class="">
+              <input
+                id="password"
+                class="w-full rounded-lg bg-gray-100 p-3 focus:outline-red-300"
+                type="password"
+                autocomplete="current-password"
+                placeholder="密码"
+              />
+              <p class="px-2 text-sm text-[red]"></p>
+            </div>
+
             <a class="text-right text-base">忘记密码</a>
           </div>
-          <div class="sms-login" hidden>
-            <div>
+          <div class="sms-login flex !hidden flex-col gap-4 py-4">
+            <div class="rounded-lg bg-gray-100 p-3 focus:outline-red-300">
               <a
-                name="area-code"
                 id="area-code"
                 class="area-code"
-                onclick="this.querySelector('.area-code-selection').toggleAttribute('hidden')"
+                onclick="this.querySelector('div').classList.toggle('hidden')"
                 >+86
-                <div class="area-code-selection" hidden>
+                <div
+                  class="hidden rounded-lg bg-gray-100 p-3 focus:outline-red-300"
+                >
                   <div class="search-box">
                     <b class="search-icon"></b>
-                    <input placeholder="搜索您的国家和地区" />
+                    <label
+                      ><input
+                        class="bg-transparent"
+                        placeholder="搜索您的国家和地区"
+                        onclick="event.stopPropagation()"
+                    /></label>
                   </div>
                   <ul>
                     <li value="+86"><span>中国</span>+86</li>
@@ -83,35 +107,45 @@
                 </div>
               </a>
 
-              <input type="tel" placeholder="请输入手机号" />
+              <label
+                ><input
+                  class="bg-transparent"
+                  type="tel"
+                  placeholder="请输入手机号"
+              /></label>
             </div>
-            <div>
-              <input type="number" placeholder="请输入验证码" />
+            <div
+              class="flex justify-between rounded-lg bg-gray-100 p-3 focus:outline-red-300"
+            >
+              <label class="flex-1"
+                ><input
+                  class="w-full bg-transparent"
+                  type="number"
+                  placeholder="请输入验证码"
+              /></label>
               <a id="verification-code">获取验证码</a>
             </div>
           </div>
-          <div class="qr-login" hidden>
-            <!-- 扫码登录内容 -->
+          <div class="qr-login !hidden">
+            <p class="text-center font-semibold">Developing</p>
           </div>
         </div>
       </div>
-
-      <div class="middle">
-        <div
-          class="middle-content"
-          onload="this.innerHTML=document.querySelector('.pwd-login').innerHTML"
-        ></div>
-      </div>
       <div class="down">
-        <button class="w-full bg-red-300 text-xl py-2 rounded-xl text-white font-medium">登录</button>
+        <button
+          id="loginBtn"
+          class="w-full rounded-lg bg-red-300 py-2 text-xl font-medium text-white"
+        >
+          登录
+        </button>
         <div class="login-with mt-4 flex gap-3">
-          <a class="flex gap-0.5">
+          <a class="flex items-center gap-0.5">
             <i
               class="fa-brands fa-qq inline-grid aspect-square w-8 place-items-center rounded-[50%] bg-[#74c0fc] text-white"
             ></i>
             QQ
           </a>
-          <a class="flex gap-0.5">
+          <a class="flex items-center gap-0.5">
             <i
               class="fa-brands fa-weixin inline-grid aspect-square w-8 place-items-center rounded-[50%] bg-[#03dd9c] text-white"
             ></i>
@@ -123,20 +157,49 @@
     </form>
   </body>
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      // 默认加载密码登录内容
-      document.querySelector(".default-tab").click();
-    });
+    // 默认加载密码登录内容
+    document.querySelector(".default-tab").click();
 
     function showLoginForm(event) {
-      console.log("------------------");
-      console.log(event.target);
-      const targetClass = event.target.getAttribute("data-target");
-      const middleContent = document.querySelector(".middle-content");
-      [...middleContent.children].forEach((e) => {
-        e.style.display = "none";
-      });
-      document.querySelector(targetClass).style.display = "block";
+      // hidden all tab
+      document
+        .querySelectorAll(".middle-content>div")
+        .forEach((e) => e.classList.add("!hidden"));
+      console.log(`currTarget`, event.currentTarget);
+      const newTab = document.querySelector(
+        event.currentTarget.getAttribute("data-target"),
+      );
+      console.log(newTab);
+      newTab.classList.remove("!hidden");
     }
+    const loginBtnElem = document.querySelector("#loginBtn");
+    const accountElem = document.querySelector("#account");
+    const passwordElem = document.querySelector("#password");
+    loginBtnElem.addEventListener("click", (e) => {
+      e.preventDefault();
+      const account = accountElem.value;
+      const password = passwordElem.value;
+      const accountErrorElem = accountElem.nextElementSibling;
+      const passwordErrorElem = passwordElem.nextElementSibling;
+      accountErrorElem.textContent = "";
+      passwordErrorElem.textContent = "";
+      if (!account) {
+        accountErrorElem.textContent = "此项是必填的";
+      } else if (account.length < 6) {
+        accountErrorElem.textContent = "账号至少6位";
+      }
+      if (!password) {
+        passwordErrorElem.textContent = "此项是必填的";
+      } else if (!/^.{6,16}$/.test(password)) {
+        passwordErrorElem.textContent = "密码长度需要在6-16之间";
+      } else if (
+        !/^[a-zA-Z]/.test(password) ||
+        !/[0-9]/.test(password) ||
+        !/[\/\-+*]/.test(password)
+      ) {
+        passwordErrorElem.textContent =
+          "密码需要同时包含三种：字母、数字、特殊字符(/*-+)";
+      }
+    });
   </script>
 </html>

@@ -1,60 +1,217 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>index</title>
-  <link rel="stylesheet" href="index.css"/>
-  <script
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>index</title>
+    <link rel="stylesheet" href="index.css" />
+    <script
       src="https://kit.fontawesome.com/385c4188b4.js"
       crossorigin="anonymous"
-  ></script>
-  <link
+    ></script>
+    <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
-  />
-  <link
+    />
+    <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
-  />
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
     style="
       background:
-      url(https://m.360buyimg.com/babel/jfs/t20271111/223831/30/43040/417113/6731c245F3fcf9342/62d66e572a22ec38.png)
+        url(https://m.360buyimg.com/babel/jfs/t20271111/223831/30/43040/417113/6731c245F3fcf9342/62d66e572a22ec38.png)
           center top / 1340px 318px no-repeat,
-        linear-gradient(to bottom, #ff4d55, #FF4C55 260px, white 696px);
-
+        linear-gradient(to bottom, #ff4d55, #ff4c55 260px, white 696px);
     "
->
-<header>
-  <nav class="flex justify-between bg-gray-50 px-4 py-[0.125rem] text-[0.8rem] [padding-inline:calc((100%-min(100%,80rem))/2)]">
-    <!--    <a>京东首页</a>-->
-    <a>广东</a>
-    <div class="flex justify-between gap-2">
-      <a>你好，<span class="text-red-500">请登录</span> </a>
-      <a>免费注册</a>
-      <a>我的订单</a>
-      <a>我的京东</a>
-      <a>京东会员</a>
-      <a class="text-red-500">企业采购</a>
-      <a>客户服务</a>
-      <a>网站导航</a>
-      <a>手机京东</a>
-      <a>网站无障碍</a>
-    </div>
-  </nav>
-</header>
-<main class="mx-auto max-w-7xl">
-  <section data-include="component/SearchArea.html"></section>
-  <section data-include="component/RecommendationArea.html"></section>
-  <section data-include="component/Nav/Nav.html" class="mt-2 mx-auto max-w-7xl"></section>
-  <section class="" data-include="component/Goods/Goods.html">
-  </section>
-</main>
-<!--<iframe id="about" src="about.html"></iframe>-->
-<footer data-include="component/Footer.html"></footer>
-</body>
-<script src="script.js"></script>
+  >
+    <header>
+      <nav
+        class="flex justify-between bg-gray-50 py-2 text-[0.8rem] [padding-inline:calc((100%-min(100%,80rem))/2+6px)]"
+      >
+        <!--    <a>京东首页</a>-->
+        <div><a>广东</a></div>
+        <div class="flex justify-between gap-2 gap">
+          <div>
+            <a>你好，<span class="text-red-500">请登录</span> </a>
+          </div>
+          <div><a>免费注册</a></div>
+          <div><a>我的订单</a></div>
+          <div><a>我的京东</a></div>
+          <div><a>京东会员</a></div>
+          <div><a class="text-red-500">企业采购</a></div>
+          <div><a>客户服务</a></div>
+          <div><a>网站导航</a></div>
+          <div
+            class="relative "
+            onmouseenter="const elem=this.querySelector('div.absolute');
+            elem.classList.toggle('overflow-hidden')
+            elem.classList.add('!max-h-screen','!outline-1');"
+            onmouseleave="const elem=this.querySelector('div.absolute');
+            elem.classList.toggle('overflow-hidden')
+            elem.classList.remove('!max-h-screen','!outline-1');"
+          >
+            <a>手机京东 </a>
+            <div
+              class="absolute right-0 top-[calc(100%+8px)] z-[2] flex max-h-0 w-44 flex-col divide-y overflow-hidden  bg-gray-50 shadow-2xl outline outline-0 outline-gray-400 transition-all [&>div>div>p:nth-of-type(2)]:text-red-500"
+            >
+              <svg
+                class="absolute right-4 top-[-10px] "
+                width="calc(17.3/2)"
+                viewBox="0 0 173 200"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <!-- 这里的点需要根据你的实际尺寸计算 -->
+                <polygon
+                  points="86.5,0 0,200 173,200"
+                  fill="white"
+                  stroke-width="10"
+                  stroke="black"
+                />
+                <!-- 如果你想底边是白色，可以尝试用两条线叠加或者分离绘制 -->
+                <!-- 例如在底部再画一条线 -->
+                <line
+                  x1="0"
+                  y1="200"
+                  x2="173"
+                  y2="200"
+                  stroke="white"
+                  stroke-width="10"
+                />
+              </svg>
+              <div class="flex items-center justify-center gap-2 px-1 py-2">
+                <img src="images/jd_mobile.jpg" class="w-[40%]" />
+                <div>
+                  <p>手机京东</p>
+                  <p>新人专享大礼包</p>
+                  <div class="flex gap-1">
+                    <a
+                      class="flex flex-col justify-center text-center text-xs leading-none"
+                      href="https://itunes.apple.com/cn/app/id414245413"
+                      target="_blank"
+                    >
+                      <i
+                        class="fa-brands fa-apple fa-lg leading-none text-black"
+                      ></i>
+
+                      iPhone</a
+                    >
+                    <a
+                      class="flex flex-col justify-center text-center text-xs leading-none"
+                      href="https://storage.jd.com/jdmobile/JDMALL-PC2.apk"
+                      target="_blank"
+                    >
+                      <i
+                        class="fa-brands fa-android fa-lg leading-none text-green-500"
+                      ></i>
+
+                      Android</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="flex justify-center gap-2 px-1 py-2">
+                <img src="images/followJD.jpg.avif" class="w-[40%]" />
+                <div>
+                  <p>关注京东JD.COM</p>
+                  <p>天天抢红包</p>
+                </div>
+              </div>
+              <div class="flex items-center justify-center gap-2 px-1 py-2">
+                <img src="images/jd_finace.jpg" class="w-[40%]" />
+                <div>
+                  <p>京东金融客户端</p>
+                  <p>新人专享大礼包</p>
+                  <div class="flex gap-1">
+                    <a
+                      class="flex flex-col justify-center text-center text-xs leading-none"
+                      href="https://itunes.apple.com/cn/app/jing-dong-jin-rong-hui-li/id895682747?mt=8"
+                      target="_blank"
+                    >
+                      <i
+                        class="fa-brands fa-apple fa-lg leading-none text-black"
+                      ></i>
+
+                      iPhone</a
+                    >
+                    <a
+                      class="flex flex-col justify-center text-center text-xs leading-none"
+                      href="https://download.jr.jd.com/downapp/jrapp_jr9631.apk"
+                      target="_blank"
+                    >
+                      <i
+                        class="fa-brands fa-android fa-lg leading-none text-green-500"
+                      ></i>
+
+                      Android</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center justify-center gap-2 px-1 py-2">
+                <img src="images/jd_health.avif" class="w-[40%]" />
+                <div>
+                  <p>京东健康客户端</p>
+                  <p>守护您的健康</p>
+                  <div class="flex gap-1">
+                    <a
+                      class="flex flex-col justify-center text-center text-xs leading-none"
+                      href="https://download.jr.jd.com/downapp/jrapp_jr9631.apk"
+                      target="_blank"
+                    >
+                      <i
+                        class="fa-brands fa-apple fa-lg leading-none text-black"
+                      ></i>
+
+                      iPhone</a
+                    >
+                    <a
+                      class="flex flex-col justify-center text-center text-xs leading-none"
+                      href="https://hlc.m.jd.com/download/?downloadSource=jdh_JDcom"
+                      target="_blank"
+                    >
+                      <i
+                        class="fa-brands fa-android fa-lg leading-none text-green-500"
+                      ></i>
+
+                      Android</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="flex justify-center gap-2 px-1 py-2">
+                <img src="images/jd_wechatApplet.avif" class="w-[40%]" />
+                <div>
+                  <p>关注京东小程序</p>
+                  <p>新人0.1元购</p>
+                </div>
+              </div>
+              <div class="flex justify-center gap-2 px-1 py-2">
+                <img src="images/jd_wechat.jpg" class="w-[40%]" />
+                <div>
+                  <p>关注微信公众号</p>
+                  <p>精彩活动先知道</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div><a>网站无障碍</a></div>
+        </div>
+      </nav>
+    </header>
+    <main class="mx-auto max-w-7xl">
+      <section data-include="component/SearchArea.html"></section>
+      <section data-include="component/RecommendationArea.html"></section>
+      <section
+        data-include="component/Nav/Nav.html"
+        class="mx-auto mt-2 max-w-7xl"
+      ></section>
+      <section class="" data-include="component/Goods/Goods.html"></section>
+    </main>
+    <!--<iframe id="about" src="about.html"></iframe>-->
+    <footer data-include="component/Footer.html"></footer>
+  </body>
+  <script src="script.js"></script>
 </html>

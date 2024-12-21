@@ -9,24 +9,34 @@
 
     <script>
       function loadPage(page) {
-        const contentElem=document.querySelector("#content")
-        contentElem.src=page
-        }
+        const contentElem = document.querySelector("#content");
+        contentElem.src = page;
+      }
     </script>
+    <style>a,button{cursor: pointer;}</style>
   </head>
-  <body >
-    <main id="main" class="h-dvh">
-      <nav id="nav" class="text-xl">
-        <ul>
-          <li>
-            <!--  id="founder" -->
-            <a id="founder" onclick="loadPage('founder.html')">企业创始人</a>
-          </li>
+  <body>
+    <img
+      class="min-h-[230px] w-full bg-black bg-center object-cover object-left px-[calc((100%-1024px)/2)]"
 
-          <li><a onclick="loadPage('privacy.html')">京东隐私政策</a></li>
-        </ul>
+      alt="合规即发展"
+      src="images/aboutPage/meetingComplianceIsDevelopment.png"
+    />
+    <main id="main" class="flex h-dvh">
+      <nav class="flex min-w-[220px] flex-col py-4 text-xl">
+        <a
+          class="relative w-full border-b border-b-gray-300 px-6 py-4 after:absolute after:right-0 after:leading-none after:px-6 after:text-2xl after:text-gray-400 after:content-['>']"
+          id="founder"
+          onclick="loadPage('founder.html')"
+          >企业创始人</a
+        >
+        <a
+          class="relative w-full border-b border-b-gray-300 px-6 py-4 after:absolute after:right-0 after:leading-none after:px-6 after:text-2xl after:text-gray-400 after:content-['>']"
+          onclick="loadPage('privacy.html')"
+          >京东隐私政策</a
+        >
       </nav>
-      <iframe id="content" class="w-full h-full p-4"></iframe>
+      <iframe id="content" class="h-full w-full p-4 ml-4"></iframe>
       <!--      <div id="content"></div>-->
     </main>
   </body>

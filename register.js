@@ -5,11 +5,11 @@ const submitBtnList = document.querySelectorAll(".submit-btn");
 const showElem = (elem) => {
   console.log(elem);
   // elem.hidden = false;
-  elem.classList.remove("hidden");
+  elem.classList.remove("!hidden");
 };
 const hideElem = (elem) => {
   // elem.hidden = true;
-  elem.classList.add("hidden");
+  elem.classList.add("!hidden");
 };
 showElem(document.querySelector('[class^="step-1"]'));
 submitBtnList.forEach((btn) => {
